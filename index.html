@@ -3,365 +3,244 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Harlake Church · Constanța</title>
-<meta name="description" content="Harlake Church: un centro de adoración y enseñanza bíblica para las familias en Constanța, Rumanía. Reunión general los domingos a las 5:00 PM.">
+<title>Harlake · Casa de Oración · Constanța</title>
+<meta name="description" content="Harlake, casa de oración en Constanța: adoración en vivo, oración y lectura de la Biblia de forma continua.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --carbon:#111111;
-    --carbon-2:#1a1816;
+    --night:#0b0a09;
     --arena:#EFE9E1;
     --piedra:#D8CEC1;
     --dorado:#C9A36A;
-    --dorado-2:#b48c52;
+    --dorado-2:#a8844f;
     --ink:#161412;
     --muted:#5e574f;
-    --muted-dark:rgba(255,255,255,.72);
-    --line-dark:rgba(255,255,255,.12);
-    --line-light:rgba(17,17,17,.1);
-    --radius:18px;
-    --max:1180px;
+    --soft:rgba(255,255,255,.7);
+    --line-d:rgba(255,255,255,.14);
+    --line-l:rgba(17,17,17,.12);
+    --pad:clamp(20px,4.5vw,72px);
     --ease:cubic-bezier(.2,.7,.2,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    font-family:Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif;
-    background:var(--arena);color:var(--ink);line-height:1.6;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
-  }
+  body{font-family:Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--night);color:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  img{display:block;max-width:100%}
+  ul{list-style:none}
   svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .px{padding-left:var(--pad);padding-right:var(--pad)}
+  .photo{background-size:cover;background-position:center;filter:sepia(.25) saturate(.85)}
+
+  /* ---------- Display type ---------- */
+  .label{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--dorado)}
+  .label::before{content:"";width:28px;height:2px;background:currentColor}
+  .display{font-weight:800;text-transform:uppercase;letter-spacing:-.025em;line-height:.95}
+  .big{font-size:clamp(40px,7.2vw,118px)}
+  .mid{font-size:clamp(32px,4.6vw,72px)}
 
   /* ---------- Logo ---------- */
   .logo{display:inline-flex;flex-direction:column;align-items:center;line-height:1;color:inherit}
-  .logo-word{position:relative;font-weight:600;font-size:34px;letter-spacing:-.035em}
+  .logo-word{position:relative;font-weight:600;font-size:32px;letter-spacing:-.035em}
   .logo-word .e{position:relative}
   .logo-word .arc{position:absolute;left:-.075em;top:.075em;width:.62em;height:.224em;color:var(--dorado);pointer-events:none}
-  .logo-sub{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:9.5px;font-weight:600;letter-spacing:.55em;padding-left:.55em}
-  .logo-sub::before,.logo-sub::after{content:"";width:2.4em;height:max(1px,.12em);background:currentColor;opacity:.85}
+  .logo-sub{display:flex;align-items:center;gap:7px;margin-top:6px;font-size:8.5px;font-weight:600;letter-spacing:.3em;padding-left:.3em;white-space:nowrap}
+  .logo-sub::before,.logo-sub::after{content:"";width:1.8em;height:max(1px,.12em);background:currentColor;opacity:.85}
 
   /* ---------- Buttons ---------- */
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 28px;border-radius:999px;
-    font-weight:600;font-size:15px;transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s;
-    white-space:nowrap;
-  }
+  .btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 26px;border-radius:999px;font-weight:600;font-size:14px;letter-spacing:.02em;transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease);white-space:nowrap}
   .btn .i{font-size:18px;transition:transform .25s var(--ease)}
-  .btn:hover .i.arrow{transform:translateX(4px)}
-  .btn:hover{transform:translateY(-1px)}
+  .btn:hover .i{transform:translateX(4px)}
   .btn-light{background:#fff;color:var(--carbon)}
   .btn-light:hover{background:var(--arena)}
-  .btn-ghost{border:1.5px solid rgba(255,255,255,.75);color:#fff}
-  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+  .btn-gold{background:var(--dorado);color:var(--carbon)}
+  .btn-gold:hover{background:#d8b47d}
   .btn-dark{background:var(--carbon);color:#fff}
   .btn-dark:hover{background:#2a2622}
-  .btn-gold{background:var(--dorado);color:var(--carbon)}
-  .btn-gold:hover{background:#d6b37e}
-
-  .link-arrow{display:inline-flex;align-items:center;gap:10px;font-weight:600;padding-bottom:6px;border-bottom:2px solid var(--dorado)}
-  .link-arrow .i{transition:transform .25s var(--ease)}
-  .link-arrow:hover .i{transform:translateX(4px)}
 
   /* ---------- Nav ---------- */
-  header.nav{
-    position:fixed;inset:0 0 auto 0;z-index:60;color:#fff;
-    transition:background .35s,backdrop-filter .35s,border-color .35s,height .35s;
-    border-bottom:1px solid transparent;
-  }
-  header.nav.scrolled{background:rgba(17,17,17,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line-dark)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:96px;transition:height .35s}
-  header.nav.scrolled .nav-in{height:76px}
-  .nav-links{display:flex;gap:36px;font-size:14px;font-weight:500}
-  .nav-links a{position:relative;opacity:.86;padding:6px 0;transition:opacity .2s}
-  .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+  header.nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
+  header.nav.scrolled{background:rgba(11,10,9,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line-d)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:92px;transition:height .35s}
+  header.nav.scrolled .nav-in{height:74px}
+  .nav-links{display:flex;gap:34px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+  .nav-links a{opacity:.8;transition:opacity .2s;position:relative;padding:6px 0}
   .nav-links a:hover,.nav-links a.active{opacity:1}
+  .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--dorado);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
   .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
-  .nav .btn{height:42px;padding:0 22px;font-size:14px}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .nav-right .btn{height:42px;padding:0 20px;font-size:13px}
   .burger{display:none;background:none;border:0;color:#fff;cursor:pointer;width:44px;height:44px;place-items:center}
   .burger .i{width:26px;height:26px}
-
-  .drawer{
-    position:fixed;inset:0;z-index:70;background:var(--carbon);color:#fff;
-    display:flex;flex-direction:column;padding:28px 24px;
-    opacity:0;pointer-events:none;transform:translateY(-12px);transition:opacity .35s,transform .35s var(--ease);
-  }
-  .drawer.open{opacity:1;pointer-events:auto;transform:none}
-  .drawer-top{display:flex;justify-content:space-between;align-items:center}
-  .drawer nav{display:flex;flex-direction:column;margin-top:48px}
-  .drawer nav a{font-size:28px;font-weight:600;letter-spacing:-.02em;padding:14px 0;border-bottom:1px solid var(--line-dark)}
-  .drawer .btn{margin-top:36px;justify-content:center}
-
-  /* ---------- Hero ---------- */
-  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;color:#fff;background:var(--carbon);isolation:isolate;overflow:hidden}
-  .hero-bg{
-    position:absolute;inset:0;z-index:-2;
-    background:
-      radial-gradient(60% 50% at 70% 25%,rgba(201,163,106,.35),transparent 70%),
-      url("https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=2200&q=80") 65% 35%/cover no-repeat,
-      #1b1611;
-    transform:scale(1.06);animation:heroZoom 18s ease-out forwards;
-  }
-  @keyframes heroZoom{to{transform:scale(1)}}
-  .hero::before{
-    content:"";position:absolute;inset:0;z-index:-1;
-    background:
-      linear-gradient(90deg,rgba(10,9,8,.88) 0%,rgba(10,9,8,.55) 45%,rgba(10,9,8,.15) 100%),
-      linear-gradient(180deg,rgba(10,9,8,.55) 0%,transparent 25%,transparent 60%,rgba(10,9,8,.9) 100%);
-  }
-  .hero-glow{
-    position:absolute;z-index:-1;right:12%;top:12%;width:420px;height:210px;
-    border:14px solid rgba(232,196,140,.55);border-bottom:0;border-radius:420px 420px 0 0;
-    filter:blur(6px);opacity:.55;
-  }
-  .hero-body{flex:1;display:flex;align-items:center;padding:150px 0 70px}
-  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--dorado)}
-  .eyebrow::before{content:"";width:34px;height:2px;background:var(--dorado)}
-  .hero h1{font-size:clamp(38px,5.4vw,74px);line-height:1.05;letter-spacing:-.035em;font-weight:600;margin:22px 0 26px;max-width:17ch;text-wrap:balance}
-  .hero p.lead{font-size:clamp(17px,1.7vw,22px);color:var(--muted-dark);max-width:40ch;line-height:1.5;text-wrap:pretty}
-  .hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
-
-  .infobar{border-top:1px solid var(--line-dark);background:rgba(17,17,17,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-  .infobar .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
-  .info{display:flex;gap:18px;align-items:center;padding:26px 24px}
-  .info + .info{border-left:1px solid var(--line-dark)}
-  .info .i{font-size:34px;color:#fff;stroke-width:1.3}
-  .info b{display:block;font-weight:600;font-size:15px}
-  .info span,.info a{font-size:13.5px;color:var(--muted-dark)}
-  .info a{display:inline-flex;align-items:center;gap:6px;text-decoration:underline;text-underline-offset:3px}
-  .info a:hover{color:#fff}
-
-  /* ---------- Sections ---------- */
-  section{padding:120px 0}
-  .arc-mark{display:block;width:56px;height:20px;color:var(--dorado);margin-bottom:14px}
-  h2.title{font-size:clamp(34px,4.4vw,54px);line-height:1.06;letter-spacing:-.03em;font-weight:600}
-  .kicker{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--dorado-2);margin-bottom:14px;display:block}
-  .sub{color:var(--muted);font-size:17px;max-width:52ch;margin-top:18px}
-
-  /* About */
-  .about{display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:center}
-  .about-img{
-    position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10;
-    background:linear-gradient(135deg,#e8dccb,#cbb89c) center/cover;
-    box-shadow:0 30px 60px -30px rgba(40,28,10,.45);
-  }
-  .about-img img{width:100%;height:100%;object-fit:cover}
-  .about-img .logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:var(--carbon);background:rgba(239,233,225,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:22px 30px 18px;border-radius:14px}
-  .about p{font-size:17px;color:var(--muted);margin:22px 0 30px;max-width:46ch}
-  .about .link-arrow{color:var(--carbon)}
-
-  /* Pillars */
-  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:70px}
-  .pillar{
-    position:relative;border-radius:var(--radius);overflow:hidden;color:#fff;aspect-ratio:3/3.6;
-    display:flex;flex-direction:column;justify-content:flex-end;padding:28px;isolation:isolate;
-    background:#221c16;
-  }
-  .hero-bg,.pillar .ph,.fam-card .ph,.about-img img{filter:sepia(.28) saturate(.85)}
-  .pillar .ph{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;transition:transform .8s var(--ease)}
-  .pillar::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,11,8,.35) 0%,rgba(14,11,8,.55) 45%,rgba(14,11,8,.92) 100%)}
-  .pillar:hover .ph{transform:scale(1.07)}
-  .pillar .i.big{font-size:36px;stroke-width:1.3;margin-bottom:18px}
-  .pillar h3{font-size:27px;font-weight:600;letter-spacing:-.02em}
-  .pillar p{color:var(--muted-dark);font-size:15px;line-height:1.45;margin-top:6px;max-width:26ch}
-  .circle{width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,.85);display:grid;place-items:center;margin-top:22px;transition:background .25s,color .25s,transform .25s var(--ease)}
-  .circle .i{font-size:16px}
-  .pillar:hover .circle{background:#fff;color:var(--carbon);transform:translateX(4px)}
-
-  /* Meetings (dark) */
-  .dark{background:var(--carbon);color:#fff}
-  .dark .sub{color:var(--muted-dark)}
-  .meet-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
-  .meet-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px;margin-top:56px}
-  .meet{border:1px solid var(--line-dark);border-radius:var(--radius);padding:32px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));display:flex;flex-direction:column;transition:border-color .3s,transform .3s var(--ease)}
-  .meet:hover{border-color:rgba(201,163,106,.55);transform:translateY(-3px)}
-  .meet.feature{background:
-      linear-gradient(180deg,rgba(17,17,17,.15),rgba(17,17,17,.92)),
-      url("https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1200&q=80") center/cover,#2a2016;
-    min-height:340px;justify-content:flex-end;border-color:transparent}
-  .day{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--dorado)}
-  .meet h3{font-size:30px;font-weight:600;letter-spacing:-.02em;margin:10px 0 4px;line-height:1.1}
-  .meet .time{font-size:46px;font-weight:600;letter-spacing:-.04em;line-height:1;margin-top:auto;padding-top:28px}
-  .meet.feature .time{margin-top:18px;padding-top:0}
-  .meet .time small{font-size:16px;font-weight:500;letter-spacing:0;color:var(--muted-dark);margin-left:6px}
-  .meet p{color:var(--muted-dark);font-size:15px}
-  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-  .tag{font-size:12.5px;font-weight:500;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22)}
-
-  /* Message */
-  .message{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-  .video{
-    position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/11;color:#fff;cursor:pointer;
-    background:linear-gradient(180deg,rgba(10,8,6,.1),rgba(10,8,6,.75)),url("https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1400&q=80") center/cover,#3a2c1d;
-    box-shadow:0 30px 60px -30px rgba(40,28,10,.5);
-  }
-  .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.95);color:var(--carbon);display:grid;place-items:center;transition:transform .3s var(--ease)}
-  .play::after{content:"";position:absolute;inset:-10px;border-radius:50%;border:1.5px solid rgba(255,255,255,.55);animation:pulse 2.4s infinite}
-  @keyframes pulse{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.35);opacity:0}}
-  .play .i{font-size:28px;margin-left:4px;fill:currentColor}
-  .video:hover .play{transform:translate(-50%,-50%) scale(1.06)}
-  .video-meta{position:absolute;left:28px;right:28px;bottom:24px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
-  .video-meta b{font-size:20px;font-weight:600;display:block}
-  .video-meta span{font-size:13px;color:var(--muted-dark)}
-  .series{margin-top:34px;display:flex;flex-direction:column}
-  .series a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-top:1px solid var(--line-light);transition:padding .25s var(--ease)}
-  .series a:last-child{border-bottom:1px solid var(--line-light)}
-  .series a:hover{padding-left:8px}
-  .series .n{font-size:13px;color:var(--dorado-2);font-weight:600;width:34px}
-  .series .t{flex:1;font-weight:600}
-  .series .d{font-size:13px;color:var(--muted)}
-
-  /* Families */
-  .fam{background:var(--piedra)}
-  .fam-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
-  .fam-card{background:var(--arena);border-radius:var(--radius);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s}
-  .fam-card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -28px rgba(40,28,10,.5)}
-  .fam-card .ph{aspect-ratio:16/10;background-size:cover;background-position:center;background-color:#c4b49c}
-  .fam-card .body{padding:24px}
-  .fam-card .age{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--dorado-2)}
-  .fam-card h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:6px 0 6px}
-  .fam-card p{font-size:14.5px;color:var(--muted);line-height:1.5}
-
-  /* Quote */
-  .quote{position:relative;color:#fff;text-align:center;isolation:isolate;padding:150px 0;overflow:hidden}
-  .quote::before{content:"";position:absolute;inset:0;z-index:-1;background:
-      linear-gradient(180deg,rgba(17,17,17,.6),rgba(17,17,17,.75)),
-      url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2200&q=80") center/cover,#3b2d20}
-  .quote blockquote{font-size:clamp(28px,3.8vw,48px);font-weight:500;letter-spacing:-.025em;line-height:1.2;max-width:22ch;margin:0 auto}
-  .quote cite{display:block;margin-top:26px;font-style:normal;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--dorado)}
-  .quote .arc-mark{margin:0 auto 28px;width:72px;height:26px}
-
-  /* Visit */
-  .visit{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .visit-card{background:var(--carbon);color:#fff;border-radius:24px;padding:56px;position:relative;overflow:hidden}
-  .visit-card::after{content:"";position:absolute;right:-120px;bottom:-200px;width:420px;height:420px;border-radius:50%;border:2px solid rgba(201,163,106,.35)}
-  .visit-card h2{max-width:13ch}
-  .visit-card .sub{color:var(--muted-dark)}
-  .steps{list-style:none;margin:34px 0 40px;display:grid;gap:18px;position:relative;z-index:1}
-  .steps li{display:flex;gap:16px;align-items:flex-start}
-  .steps .num{flex:none;width:32px;height:32px;border-radius:50%;background:rgba(201,163,106,.16);color:var(--dorado);font-weight:600;font-size:14px;display:grid;place-items:center}
-  .steps b{display:block;font-weight:600}
-  .steps span{font-size:14.5px;color:var(--muted-dark)}
-  .visit-card .btn{position:relative;z-index:1}
-
-  form.card{background:#fff;border-radius:24px;padding:48px;display:flex;flex-direction:column;gap:16px;box-shadow:0 30px 60px -36px rgba(40,28,10,.4)}
-  form h3{font-size:24px;font-weight:600;letter-spacing:-.02em}
-  form > p{color:var(--muted);font-size:15px;margin-bottom:6px}
-  .field{display:flex;flex-direction:column;gap:6px}
-  .field label{font-size:13px;font-weight:600}
-  .field input,.field select{
-    height:50px;border-radius:12px;border:1.5px solid var(--piedra);background:#fbf9f6;padding:0 16px;
-    font:inherit;font-size:15px;color:var(--ink);transition:border-color .2s,background .2s;outline:none;
-  }
-  .field input:focus,.field select:focus{border-color:var(--dorado);background:#fff}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  form .btn{justify-content:center;margin-top:8px;border:0;cursor:pointer;font-family:inherit}
-  .ok{display:none;align-items:center;gap:10px;padding:14px 16px;border-radius:12px;background:#f3ecdf;color:#6b5128;font-size:14.5px;font-weight:500}
-  .ok.show{display:flex}
-
-  /* Footer */
-  footer{background:var(--carbon);color:#fff;padding:90px 0 36px}
-  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
-  .foot p{color:var(--muted-dark);font-size:14.5px;margin-top:22px;max-width:30ch}
-  .foot h4{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--dorado);font-weight:600;margin-bottom:18px}
-  .foot ul{list-style:none;display:grid;gap:10px;font-size:14.5px}
-  .foot ul a{color:var(--muted-dark);transition:color .2s}
-  .foot ul a:hover{color:#fff}
-  .social{display:flex;gap:10px;margin-top:26px}
-  .social a{width:42px;height:42px;border-radius:50%;border:1px solid var(--line-dark);display:grid;place-items:center;transition:background .25s,border-color .25s}
-  .social a:hover{background:var(--dorado);border-color:var(--dorado);color:var(--carbon)}
-  .social .i{font-size:18px}
-  .legal{margin-top:70px;padding-top:26px;border-top:1px solid var(--line-dark);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.5)}
-
-  /* Reveal */
-  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-  .rv.in{opacity:1;transform:none}
-  .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
-  @media (prefers-reduced-motion:reduce){
-    .rv{opacity:1;transform:none;transition:none}
-    .hero-bg{animation:none;transform:none}
-    .play::after{animation:none}
-  }
-
-  /* ---------- Responsive ---------- */
-  @media (max-width:1060px){
-    .nav-links{gap:24px}
-    .pillars,.fam-grid{grid-template-columns:repeat(2,1fr)}
-    .pillar{aspect-ratio:4/3.6}
-    .meet-grid{grid-template-columns:1fr 1fr}
-    .meet.feature{grid-column:1/-1}
-    .foot{grid-template-columns:1fr 1fr}
-  }
-  @media (max-width:900px){
-    .nav-links,.nav .btn{display:none}
-    .burger{display:grid}
-    .nav-in{height:80px}
-    .about,.message,.visit{grid-template-columns:1fr;gap:40px}
-    .infobar .wrap{grid-template-columns:1fr;padding:0}
-    .info{padding:20px 24px}
-    .info + .info{border-left:0;border-top:1px solid var(--line-dark)}
-  }
-  @media (max-width:600px){
-    .wrap{padding:0 16px}
-    section{padding:84px 0}
-    .logo-word{font-size:28px}
-    .hero-body{padding:130px 0 50px}
-    .hero-cta{flex-direction:column;align-items:flex-start;gap:14px}
-    .hero-cta .btn{min-width:220px;justify-content:center}
-    .hero-glow{width:240px;height:120px;right:-30px;top:16%;border-width:9px}
-    .info{padding:18px 16px}
-    .pillars{grid-template-columns:1fr;margin-top:48px}
-    .pillar{aspect-ratio:auto;min-height:280px}
-    .fam-grid,.meet-grid{grid-template-columns:1fr}
-    .visit-card,form.card{padding:32px 22px;border-radius:20px}
-    .row{grid-template-columns:1fr}
-    .foot{grid-template-columns:1fr}
-    .quote{padding:110px 0}
-  }
-
-  /* ---------- Language selector ---------- */
-  .nav-right{display:flex;align-items:center;gap:14px}
   .lang{display:inline-flex;align-items:center;gap:2px;padding:4px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:rgba(17,17,17,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
   .lang .i{font-size:16px;margin:0 4px 0 6px;opacity:.8}
-  .lang button{
-    font:inherit;font-size:12px;font-weight:600;letter-spacing:.06em;color:#fff;background:none;border:0;cursor:pointer;
-    height:30px;min-width:36px;padding:0 9px;border-radius:999px;opacity:.7;transition:background .2s,color .2s,opacity .2s;
-  }
+  .lang button{font:inherit;font-size:12px;font-weight:600;letter-spacing:.06em;color:#fff;background:none;border:0;cursor:pointer;height:30px;min-width:36px;padding:0 9px;border-radius:999px;opacity:.7;transition:background .2s,color .2s,opacity .2s}
   .lang button:hover{opacity:1}
   .lang button[aria-pressed="true"]{background:#fff;color:var(--carbon);opacity:1}
   .lang button:focus-visible{outline:2px solid var(--dorado);outline-offset:2px}
-  .drawer .lang{align-self:flex-start;margin-top:32px}
+
+  .drawer{position:fixed;inset:0;z-index:70;background:var(--night);display:flex;flex-direction:column;padding:28px var(--pad);opacity:0;pointer-events:none;transform:translateY(-12px);transition:opacity .35s,transform .35s var(--ease)}
+  .drawer.open{opacity:1;pointer-events:auto;transform:none}
+  .drawer-top{display:flex;justify-content:space-between;align-items:center}
+  .drawer nav{display:flex;flex-direction:column;margin-top:44px}
+  .drawer nav a{font-size:30px;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;padding:14px 0;border-bottom:1px solid var(--line-d)}
+  .drawer .lang{align-self:flex-start;margin-top:30px}
   .drawer .lang button{height:38px;min-width:48px;font-size:14px}
-  html.switching main, html.switching .hero-body, html.switching .infobar{opacity:.35}
-  .hero-body,.infobar,main{transition:opacity .18s}
-  @media (max-width:1120px){
+  .drawer .btn{margin-top:30px;justify-content:center}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;isolation:isolate;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:-2;background-image:url("https://images.unsplash.com/photo-1580586277034-9913114ac737?auto=format&fit=crop&w=2400&q=80");background-color:#1b1611;background-position:center 30%;transform:scale(1.06);animation:heroZoom 20s ease-out forwards}
+  @keyframes heroZoom{to{transform:scale(1)}}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(90% 75% at 50% 45%,rgba(11,10,9,.42),rgba(11,10,9,.78)),linear-gradient(180deg,rgba(11,10,9,.6) 0%,transparent 28%,transparent 60%,rgba(11,10,9,.95) 100%)}
+  .hero-main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding-top:130px;padding-bottom:60px}
+  .live-pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(11,10,9,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--dorado);animation:beat 2s infinite}
+  @keyframes beat{0%{box-shadow:0 0 0 0 rgba(201,163,106,.6)}70%{box-shadow:0 0 0 10px rgba(201,163,106,0)}100%{box-shadow:0 0 0 0 rgba(201,163,106,0)}}
+  .hero h1{font-size:clamp(36px,6vw,100px);max-width:18ch;margin:30px auto 22px;text-wrap:balance}
+  .ref{font-size:13px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--dorado);font-style:normal}
+  .hero-strip{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-d)}
+  .hero-strip li{display:flex;align-items:center;justify-content:center;gap:14px;padding:26px 16px;font-size:13px;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+  .hero-strip li + li{border-left:1px solid var(--line-d)}
+  .hero-strip .i{font-size:22px;color:var(--dorado)}
+
+
+  /* ---------- Split (Qué es) ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;min-height:92vh;background:var(--arena);color:var(--ink)}
+  .split .photo{min-height:420px}
+  .split-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(56px,8vw,140px) var(--pad)}
+  .split-text .label{color:var(--dorado-2)}
+  .split-text h2{margin:26px 0 30px;max-width:12ch}
+  .split-text p{font-size:clamp(16px,1.25vw,19px);color:var(--muted);max-width:44ch}
+  .split-text p + p{margin-top:16px}
+  .arcs{display:block;width:58px;height:21px;color:var(--dorado);margin-bottom:22px}
+
+  /* ---------- Triptych (Qué vivimos) ---------- */
+  .live-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;padding-top:clamp(80px,9vw,140px);padding-bottom:48px}
+  .live-head h2{max-width:14ch}
+  .live-head p{color:var(--soft);font-size:clamp(16px,1.3vw,19px);max-width:34ch}
+  .tri{display:flex;height:min(86vh,820px);min-height:560px}
+  .tri-item{position:relative;flex:1;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(28px,3vw,52px);isolation:isolate;transition:flex .7s var(--ease);border-right:1px solid rgba(255,255,255,.08)}
+  .tri-item:last-child{border-right:0}
+  .tri-item .photo{position:absolute;inset:0;z-index:-2;transition:transform 1s var(--ease)}
+  .tri-item::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,10,9,.15) 0%,rgba(11,10,9,.45) 45%,rgba(11,10,9,.94) 100%)}
+  .tri:hover .tri-item{flex:.85}
+  .tri:hover .tri-item:hover{flex:1.35}
+  .tri-item:hover .photo{transform:scale(1.05)}
+  .tri-num{position:absolute;top:clamp(24px,3vw,44px);left:clamp(28px,3vw,52px);font-size:13px;font-weight:700;letter-spacing:.3em;color:var(--dorado)}
+  .tri-item .i.big{font-size:34px;color:var(--dorado);stroke-width:1.4;margin-bottom:18px}
+  .tri-item h3{font-size:clamp(28px,3vw,48px)}
+  .tri-item p{margin-top:16px;color:var(--soft);font-size:15.5px;line-height:1.6;max-width:36ch}
+
+  /* ---------- Videos ---------- */
+  .watch{padding-top:clamp(90px,10vw,160px);padding-bottom:clamp(90px,10vw,160px);background:radial-gradient(70% 60% at 85% 10%,rgba(201,163,106,.12),transparent 70%),var(--night)}
+  .watch-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:clamp(32px,4vw,72px);align-items:start;margin-top:56px}
+  .screen{position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden;border:1px solid var(--line-d)}
+  .screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .screen-poster{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:24px;isolation:isolate;color:#fff}
+  .screen-poster .photo{position:absolute;inset:0;z-index:-2}
+  .screen-poster::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(11,10,9,.62)}
+  .play{width:88px;height:88px;border-radius:50%;background:#fff;color:var(--carbon);display:grid;place-items:center;position:relative;transition:transform .3s var(--ease)}
+  .play::after{content:"";position:absolute;inset:-10px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);animation:ring 2.4s infinite}
+  @keyframes ring{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.35);opacity:0}}
+  .play .i{font-size:30px;margin-left:5px;fill:currentColor;stroke:none}
+  .screen-poster:hover .play{transform:scale(1.06)}
+  .screen-poster b{font-size:15px;font-weight:600;letter-spacing:.04em}
+  .screen-tag{position:absolute;top:16px;left:16px;z-index:2}
+  .watch-side{display:flex;flex-direction:column;justify-content:space-between;gap:36px}
+  .watch-side p{color:var(--soft);font-size:clamp(16px,1.25vw,18px);max-width:38ch}
+  .socials{border-top:1px solid var(--line-d);margin-top:18px}
+  .socials a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;border-bottom:1px solid var(--line-d);transition:color .25s,padding .35s var(--ease)}
+  .socials a:hover{color:var(--dorado);padding-left:10px}
+  .socials .name{display:flex;align-items:center;gap:16px;font-size:clamp(22px,2.2vw,34px);font-weight:800;text-transform:uppercase;letter-spacing:-.01em}
+  .socials .name .i{font-size:26px}
+  .socials .go{font-size:24px;transition:transform .3s var(--ease)}
+  .socials a:hover .go{transform:translate(4px,-4px)}
+
+  /* ---------- Verse ---------- */
+  .verse{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;isolation:isolate;overflow:hidden;padding-top:120px;padding-bottom:120px}
+  .verse .photo{position:absolute;inset:0;z-index:-2;background-attachment:fixed}
+  .verse::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(11,10,9,.66)}
+  .verse blockquote{font-size:clamp(30px,4.6vw,72px);font-weight:700;letter-spacing:-.025em;line-height:1.1;max-width:22ch;margin:0 auto 30px;text-wrap:balance}
+  .verse .arcs{width:84px;height:30px;margin:0 auto 34px}
+
+  /* ---------- Visit ---------- */
+  .visit{background:var(--arena);color:var(--ink);padding-top:clamp(90px,10vw,160px);padding-bottom:clamp(90px,10vw,160px)}
+  .visit .label{color:var(--dorado-2)}
+  .visit h2{margin:24px 0 18px;max-width:13ch}
+  .visit .lead{font-size:clamp(17px,1.4vw,21px);color:var(--muted);max-width:40ch}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(48px,6vw,90px);border-top:1px solid var(--line-l)}
+  .steps li{padding:34px 34px 34px 0}
+  .steps li + li{padding-left:34px;border-left:1px solid var(--line-l)}
+  .steps .n{font-size:13px;font-weight:700;letter-spacing:.3em;color:var(--dorado-2)}
+  .steps b{display:block;font-size:clamp(20px,1.7vw,26px);font-weight:700;letter-spacing:-.01em;margin:14px 0 8px;line-height:1.2}
+  .steps span{color:var(--muted);font-size:15.5px}
+  .visit-foot{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:40px;padding-top:34px;border-top:1px solid var(--line-l)}
+  .place{display:inline-flex;align-items:center;gap:12px;font-size:clamp(18px,1.6vw,24px);font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+  .place .i{color:var(--dorado-2);font-size:26px}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--night);padding-top:clamp(70px,8vw,120px);overflow:hidden}
+  .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .foot-top p{color:var(--soft);max-width:34ch;font-size:15px;margin-top:18px}
+  .foot-links{display:flex;gap:clamp(36px,6vw,90px);flex-wrap:wrap}
+  .foot-links h4{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--dorado);font-weight:600;margin-bottom:16px}
+  .foot-links ul{display:grid;gap:10px;font-size:14.5px}
+  .foot-links a{color:var(--soft);transition:color .2s}
+  .foot-links a:hover{color:#fff}
+  .wordmark{display:flex;justify-content:center;margin-top:clamp(60px,8vw,110px);line-height:.8;user-select:none}
+  .wordmark .logo-word{font-size:clamp(90px,24vw,400px);letter-spacing:-.05em;color:rgba(255,255,255,.07)}
+  .wordmark .arc{color:rgba(201,163,106,.35)}
+  .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:24px;padding-bottom:28px;border-top:1px solid var(--line-d);font-size:12.5px;color:rgba(255,255,255,.45)}
+
+  /* ---------- Reveal ---------- */
+  .rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+  html.switching main,html.switching .hero-main{opacity:.35}
+  main,.hero-main{transition:opacity .18s}
+  @media (prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    .hero-bg,.dot,.play::after{animation:none}
+    .hero-bg{transform:none}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1080px){
     .nav-links,.nav-right > .btn{display:none}
     .burger{display:grid}
+    .watch-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:900px){
+    .split{grid-template-columns:1fr;min-height:0}
+    .split .photo{min-height:56vw}
+    .tri{flex-direction:column;height:auto;min-height:0}
+    .tri-item,.tri:hover .tri-item,.tri:hover .tri-item:hover{flex:none;min-height:78vw;border-right:0;border-bottom:1px solid rgba(255,255,255,.08)}
+    .steps{grid-template-columns:1fr}
+    .steps li,.steps li + li{padding:26px 0;border-left:0}
+    .steps li + li{border-top:1px solid var(--line-l)}
+    .verse .photo{background-attachment:scroll}
+  }
+  @media (max-width:600px){
+    .nav-in{height:76px}
+    .logo-word{font-size:27px}
+    .hero-main{padding-top:110px}
+    .hero h1{margin:24px auto 16px}
+    .hero-strip{grid-template-columns:1fr}
+    .hero-strip li{padding:16px var(--pad);font-size:12px;justify-content:flex-start}
+    .hero-strip li + li{border-left:0;border-top:1px solid var(--line-d)}
+    .tri-item,.tri:hover .tri-item,.tri:hover .tri-item:hover{min-height:118vw}
+    .play{width:68px;height:68px}
+    .screen{aspect-ratio:4/3}
+    .screen-tag{top:12px;left:12px;padding:6px 12px;font-size:10px}
+    .socials .name{font-size:22px}
   }
   @media (max-width:420px){
     .nav-in .lang .i{display:none}
     .nav-in .lang button{min-width:32px;padding:0 7px}
   }
-
-  /* Una sola reunión y visita sin formulario */
-  .meet-grid{grid-template-columns:1fr}
-  .meet.feature{min-height:420px;padding:44px}
-  .meet.feature h3{font-size:clamp(30px,3.4vw,44px)}
-  .meet.feature .time{font-size:clamp(56px,6vw,84px)}
-  .visit{grid-template-columns:1fr}
-  .visit-card{padding:64px}
-  .visit-card .steps{grid-template-columns:repeat(3,1fr);gap:32px;margin:44px 0}
-  @media (max-width:900px){ .visit-card .steps{grid-template-columns:1fr;gap:18px;margin:34px 0 40px} }
-  @media (max-width:600px){ .meet.feature{min-height:380px;padding:28px} .visit-card{padding:36px 22px} }
-
-  /* Tres tarjetas: Adoración, Enseñanza, Comunidad */
-  .pillars{grid-template-columns:repeat(3,1fr)}
-  @media (max-width:1060px){ .pillar{aspect-ratio:3/3.8} }
-  @media (max-width:760px){ .pillars{grid-template-columns:1fr} .pillar{aspect-ratio:auto;min-height:280px} }
 </style>
 </head>
 <body>
@@ -371,38 +250,32 @@
   <defs>
     <symbol id="arc" viewBox="0 0 62 22.4"><path d="M0 22.4 A32.65 32.65 0 0 1 62 22.4 L51.76 22.4 A23.15 23.15 0 0 0 10.24 22.4 Z" fill="currentColor"/></symbol>
     <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="play" viewBox="0 0 24 24"><path d="M7 5l12 7-12 7z"/></symbol>
-    <symbol id="cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M9.5 15l1.6 1.6 3.4-3.4"/></symbol>
+    <symbol id="ne" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
     <symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.6"/></symbol>
-    <symbol id="people" viewBox="0 0 24 24"><circle cx="12" cy="7" r="2.6"/><circle cx="5.5" cy="9" r="2.1"/><circle cx="18.5" cy="9" r="2.1"/><path d="M7.5 19v-1.5a4.5 4.5 0 0 1 9 0V19zM2.5 19v-1a3.2 3.2 0 0 1 4.6-2.9M21.5 19v-1a3.2 3.2 0 0 0-4.6-2.9"/></symbol>
     <symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></symbol>
     <symbol id="book" viewBox="0 0 24 24"><path d="M12 6.5C10 5 6.5 4.5 3 5v13c3.5-.5 7 0 9 1.5 2-1.5 5.5-2 9-1.5V5c-3.5-.5-7 0-9 1.5zM12 6.5v13"/></symbol>
-    <symbol id="leaf" viewBox="0 0 24 24"><path d="M12 20v-7M12 13c0-4 3-7 8-7 0 4-3 7-8 7zM12 15c0-3.5-2.5-6-7-6 0 3.5 2.5 6 7 6z"/></symbol>
+    <symbol id="flame" viewBox="0 0 24 24"><path d="M12 21c-3.9 0-6.5-2.7-6.5-6.2 0-3.4 2.4-5.4 3.8-7.6.4 1.6 1.3 2.6 2.4 3.2-.2-2.8 1-5.6 3.4-7.4-.2 2.8 1 4.6 2.2 6.3 1 1.4 1.7 2.9 1.7 5 0 3.8-2.8 6.7-7 6.7z"/><path d="M12 21c-1.6 0-2.8-1.2-2.8-2.8 0-1.6 1.2-2.5 2.8-4.2 1.6 1.7 2.8 2.6 2.8 4.2 0 1.6-1.2 2.8-2.8 2.8z"/></symbol>
+    <symbol id="play" viewBox="0 0 24 24"><path d="M7 5l12 7-12 7z"/></symbol>
     <symbol id="menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></symbol>
     <symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
-    <symbol id="heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.8-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 9c0 6.2-8 11-8 11z"/></symbol>
     <symbol id="ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></symbol>
     <symbol id="yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/></symbol>
-    <symbol id="fb" viewBox="0 0 24 24"><path d="M14 8.5h2.5V5H14a3.5 3.5 0 0 0-3.5 3.5V11H8v3.5h2.5V21H14v-6.5h2.5L17 11h-3V9a.5.5 0 0 1 .5-.5z"/></symbol>
-    <symbol id="check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 10"/></symbol>
   </defs>
 </svg>
 
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
-  <div class="wrap nav-in">
-    <a href="#inicio" class="logo" aria-label="Harlake Church">
-      <span class="logo-word">harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span>
-      <span class="logo-sub">CHURCH</span>
+  <div class="nav-in px">
+    <a href="#inicio" class="logo" aria-label="Harlake · Casa de Oración">
+      <span class="logo-word">Harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span>
+      <span class="logo-sub">CASA DE ORACIÓN</span>
     </a>
     <nav class="nav-links" data-i18n-aria="aria.mainnav" aria-label="Principal">
-      <a href="#inicio" class="active" data-i18n="nav.home">Inicio</a>
-      <a href="#quienes" data-i18n="nav.about">Quiénes somos</a>
-      <a href="#reuniones" data-i18n="nav.meetings">Reuniones</a>
-      <a href="#ensenanza" data-i18n="nav.teaching">Enseñanza</a>
-      <a href="#familias" data-i18n="nav.families">Familias</a>
-      <a href="#visita" data-i18n="nav.connect">Conecta</a>
+      <a href="#que-es" data-i18n="nav.what">Qué es</a>
+      <a href="#vivimos" data-i18n="nav.live">Qué vivimos</a>
+      <a href="#videos" data-i18n="nav.videos">Videos</a>
+      <a href="#visita" data-i18n="nav.visit">Visítanos</a>
     </nav>
     <div class="nav-right">
       <div class="lang" role="group" data-i18n-aria="aria.lang" aria-label="Idioma">
@@ -411,7 +284,7 @@
         <button type="button" data-lang="ro" aria-pressed="false" lang="ro" title="Română">RO</button>
         <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
       </div>
-      <a href="#visita" class="btn btn-light"><span data-i18n="cta.visit">Planifica tu visita</span> <svg class="i arrow"><use href="#arrow"/></svg></a>
+      <a href="#visita" class="btn btn-light"><span data-i18n="nav.visit">Visítanos</span> <svg class="i"><use href="#arrow"/></svg></a>
       <button class="burger" id="openMenu" data-i18n-aria="aria.open" aria-label="Abrir menú"><svg class="i"><use href="#menu"/></svg></button>
     </div>
   </div>
@@ -419,16 +292,14 @@
 
 <div class="drawer" id="drawer" aria-hidden="true">
   <div class="drawer-top">
-    <span class="logo"><span class="logo-word">harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span><span class="logo-sub">CHURCH</span></span>
+    <span class="logo"><span class="logo-word">Harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span><span class="logo-sub">CASA DE ORACIÓN</span></span>
     <button class="burger" id="closeMenu" data-i18n-aria="aria.close" aria-label="Cerrar menú" style="display:grid"><svg class="i"><use href="#x"/></svg></button>
   </div>
   <nav>
-    <a href="#inicio" data-i18n="nav.home">Inicio</a>
-    <a href="#quienes" data-i18n="nav.about">Quiénes somos</a>
-    <a href="#reuniones" data-i18n="nav.meetings">Reuniones</a>
-    <a href="#ensenanza" data-i18n="nav.teaching">Enseñanza</a>
-    <a href="#familias" data-i18n="nav.families">Familias</a>
-    <a href="#visita" data-i18n="nav.connect">Conecta</a>
+    <a href="#que-es" data-i18n="nav.what">Qué es</a>
+    <a href="#vivimos" data-i18n="nav.live">Qué vivimos</a>
+    <a href="#videos" data-i18n="nav.videos">Videos</a>
+    <a href="#visita" data-i18n="nav.visit">Visítanos</a>
   </nav>
   <div class="lang" role="group" data-i18n-aria="aria.lang" aria-label="Idioma">
     <svg class="i" aria-hidden="true"><use href="#globe"/></svg>
@@ -436,306 +307,231 @@
     <button type="button" data-lang="ro" aria-pressed="false" lang="ro" title="Română">RO</button>
     <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button>
   </div>
-  <a href="#visita" class="btn btn-gold"><span data-i18n="cta.visit">Planifica tu visita</span> <svg class="i arrow"><use href="#arrow"/></svg></a>
+  <a href="#visita" class="btn btn-gold"><span data-i18n="nav.visit">Visítanos</span> <svg class="i"><use href="#arrow"/></svg></a>
 </div>
 
 <!-- ============ HERO ============ -->
-<section class="hero" id="inicio" style="padding:0">
-  <div class="hero-bg" role="img" data-i18n-aria="aria.hero" aria-label="Personas adorando con las manos alzadas"></div>
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="hero-body">
-    <div class="wrap" style="width:100%">
-      <span class="eyebrow rv" data-i18n="hero.eyebrow">Constanța · Rumanía</span>
-      <h1 class="rv d1" data-i18n="hero.title">Experimenta la gracia y el amor de Dios en tu vida</h1>
-      <p class="lead rv d2" data-i18n="hero.lead">En este lugar amamos a Dios porque Él nos amó primero… nuestra canción es solo para Él.</p>
-      <div class="hero-cta rv d3">
-        <a href="#ensenanza" class="btn btn-ghost"><svg class="i" style="fill:currentColor"><use href="#play"/></svg> <span data-i18n="hero.watch">Ver un mensaje</span></a>
-      </div>
-    </div>
+<section class="hero" id="inicio">
+  <div class="hero-bg photo" role="img" data-i18n-aria="aria.hero" aria-label="Líder de adoración con guitarra en el escenario"></div>
+  <div class="hero-main px">
+    <span class="live-pill rv"><span class="dot"></span><span data-i18n="hero.eyebrow">Casa de oración · Constanța</span></span>
+    <h1 class="display rv d1" data-i18n="hero.verse">Mi casa será llamada casa de oración para todos los pueblos</h1>
+    <cite class="ref rv d2" data-i18n="hero.ref">Isaías 56:7</cite>
   </div>
-  <div class="infobar">
-    <div class="wrap">
-      <div class="info"><svg class="i"><use href="#cal"/></svg><div><b data-i18n="m1.title">Reunión General</b><span data-i18n="info.sundays">Domingos 5:00 PM</span></div></div>
-      <div class="info"><svg class="i"><use href="#pin"/></svg><div><b data-i18n="info.city">Constanța, Rumanía</b><a href="https://maps.google.com/?q=Constanta,Romania" target="_blank" rel="noopener"><span data-i18n="info.map">Ver ubicación</span> <svg class="i"><use href="#arrow"/></svg></a></div></div>
-      <div class="info"><svg class="i"><use href="#people"/></svg><div><b data-i18n="info.family">Toda la familia</b><span data-i18n="info.ages">De Kids a Gold: un lugar para cada edad</span></div></div>
-    </div>
-  </div>
+  <ul class="hero-strip rv d3">
+    <li><svg class="i"><use href="#sun"/></svg><span data-i18n="trio1">Adoración en vivo</span></li>
+    <li><svg class="i"><use href="#flame"/></svg><span data-i18n="trio2">Oración</span></li>
+    <li><svg class="i"><use href="#book"/></svg><span data-i18n="trio3">Lectura de la Biblia</span></li>
+  </ul>
 </section>
 
 <main>
-<!-- ============ QUIÉNES SOMOS ============ -->
-<section id="quienes">
-  <div class="wrap">
-    <div class="about">
-      <div class="about-img rv">
-        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy" onerror="this.remove()">
-        <span class="logo"><span class="logo-word">harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span><span class="logo-sub">CHURCH</span></span>
-      </div>
-      <div class="rv d1">
-        <svg class="arc-mark"><use href="#arc"/></svg>
-        <h2 class="title" data-i18n="about.title">Quiénes somos</h2>
-        <p data-i18n="about.text">Somos una iglesia centrada en la presencia de Dios, la enseñanza bíblica y el fortalecimiento de las familias, para ver vidas transformadas y con propósito.</p>
-        <a href="#reuniones" class="link-arrow"><span data-i18n="about.link">Conoce nuestra visión</span> <svg class="i"><use href="#arrow"/></svg></a>
-      </div>
-    </div>
-
-    <div class="pillars">
-      <a href="#reuniones" class="pillar rv">
-        <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=900&q=80')"></div>
-        <svg class="i big"><use href="#sun"/></svg>
-        <h3 data-i18n="p1.t">Adoración</h3><p data-i18n="p1.d">Le damos nuestra música y Él nos da Su Presencia.</p>
-        <span class="circle"><svg class="i"><use href="#arrow"/></svg></span>
-      </a>
-      <a href="#ensenanza" class="pillar rv d1">
-        <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=900&q=80')"></div>
-        <svg class="i big"><use href="#book"/></svg>
-        <h3 data-i18n="nav.teaching">Enseñanza</h3><p data-i18n="p2.d">Leemos Sus palabras hasta encontrar Su Voz.</p>
-        <span class="circle"><svg class="i"><use href="#arrow"/></svg></span>
-      </a>
-      <a href="#familias" class="pillar rv d2">
-        <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=900&q=80')"></div>
-        <svg class="i big"><use href="#people"/></svg>
-        <h3 data-i18n="p3.t">Comunidad</h3><p data-i18n="p3.d">Compartimos nuestras vidas porque Él nos hizo Su familia.</p>
-        <span class="circle"><svg class="i"><use href="#arrow"/></svg></span>
-      </a>
-    </div>
+<!-- ============ QUÉ ES ============ -->
+<section class="split" id="que-es">
+  <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1516036013478-08fa067fd4a0?auto=format&fit=crop&w=1600&q=80');background-position:center 40%"></div>
+  <div class="split-text">
+    <svg class="arcs rv"><use href="#arc"/></svg>
+    <span class="label rv" data-i18n="what.kicker">Qué es Harlake</span>
+    <h2 class="display mid rv d1" data-i18n="what.title">Un lugar para estar con Dios</h2>
+    <p class="rv d2" data-i18n="what.p1">Harlake es un espacio en Constanța donde, de forma continua, hay música en vivo para Dios, personas orando y la Biblia leída en voz alta.</p>
+    <p class="rv d2" data-i18n="what.p2">No necesitas ser religioso ni tener todo resuelto. Entra, quédate el tiempo que quieras y simplemente está con Dios.</p>
   </div>
 </section>
 
-<!-- ============ REUNIONES ============ -->
-<section class="dark" id="reuniones">
-  <div class="wrap">
-    <div class="meet-head">
-      <div class="rv">
-        <span class="kicker" data-i18n="nav.meetings">Reuniones</span>
-        <h2 class="title" data-i18n="meet.title">Te esperamos cada semana</h2>
-      </div>
-    </div>
-    <div class="meet-grid">
-      <div class="meet feature rv">
-        <span class="day" data-i18n="day.sun">Domingo</span>
-        <h3 data-i18n="m1.title">Reunión General</h3>
-        <p data-i18n="m1.d">Adoración, Palabra y comunidad para toda la familia.</p>
-        <div class="time" data-i18n-html="time.sun">5:00<small>PM</small></div>
-        <div class="tags"><span class="tag">Harlake Kids</span><span class="tag">Harlake Teens</span><span class="tag" data-i18n="coffee">Café</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ENSEÑANZA ============ -->
-<section id="ensenanza">
-  <div class="wrap message">
-    <a href="#" class="video rv" data-i18n-aria="aria.play" aria-label="Reproducir el mensaje más reciente">
-      <span class="play"><svg class="i"><use href="#play"/></svg></span>
-      <div class="video-meta">
-        <div><span data-i18n="msg.latest">Mensaje más reciente</span><b data-i18n="s1.t">Una mesa preparada</b></div>
-        <span>42 min</span>
-      </div>
-    </a>
-    <div class="rv d1">
-      <span class="kicker" data-i18n="nav.teaching">Enseñanza</span>
-      <h2 class="title" data-i18n="teach.title">La Palabra de Dios para la vida real</h2>
-      <p class="sub" data-i18n="teach.sub">Mensajes claros y prácticos, fieles a la Biblia, para que tu fe crezca de domingo a domingo.</p>
-      <div class="series">
-        <a href="#"><span class="n">01</span><span class="t" data-i18n="s1.t">Una mesa preparada</span><span class="d" data-i18n="s1.r">Salmo 23</span></a>
-        <a href="#"><span class="n">02</span><span class="t" data-i18n="s2.t">Familias con propósito</span><span class="d" data-i18n="s2.r">Josué 24</span></a>
-        <a href="#"><span class="n">03</span><span class="t" data-i18n="s3.t">La presencia que transforma</span><span class="d" data-i18n="s3.r">Éxodo 33</span></a>
-      </div>
-      <div style="margin-top:32px"><a href="#" class="link-arrow"><span data-i18n="teach.all">Ver todos los mensajes</span> <svg class="i"><use href="#arrow"/></svg></a></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FAMILIAS ============ -->
-<section class="fam" id="familias">
-  <div class="wrap">
+<!-- ============ QUÉ VIVIMOS ============ -->
+<section id="vivimos">
+  <div class="live-head px">
     <div class="rv">
-      <span class="kicker" data-i18n="nav.families">Familias</span>
-      <h2 class="title" data-i18n="fam.title">Un espacio para cada generación</h2>
-      <p class="sub" data-i18n="fam.sub">Creemos que la fe se vive en casa. Por eso acompañamos a cada miembro de la familia en su etapa.</p>
+      <span class="label" data-i18n="live.kicker">Lo que vivimos</span>
+      <h2 class="display mid" style="margin-top:22px" data-i18n="live.title">Adoración, oración y la Biblia</h2>
     </div>
-    <div class="fam-grid">
-      <article class="fam-card rv">
-        <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80')"></div>
-        <div class="body"><span class="age" data-i18n="min.kids.l">Niños</span><h3>Harlake Kids</h3><p data-i18n="min.kids.d">Aprenden de Jesús jugando, en un ambiente seguro y lleno de alegría.</p></div>
-      </article>
-      <article class="fam-card rv d1">
-        <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80')"></div>
-        <div class="body"><span class="age" data-i18n="min.teens.l">Adolescentes</span><h3>Harlake Teens</h3><p data-i18n="min.teens.d">Amistades sanas y respuestas honestas en una etapa de grandes cambios.</p></div>
-      </article>
-      <article class="fam-card rv d2">
-        <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80')"></div>
-        <div class="body"><span class="age" data-i18n="min.youth.l">Jóvenes</span><h3>Harlake Youth</h3><p data-i18n="min.youth.d">Una generación apasionada por Dios que descubre su propósito.</p></div>
-      </article>
-      <article class="fam-card rv">
-        <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?auto=format&fit=crop&w=800&q=80');background-position:center 12%"></div>
-        <div class="body"><span class="age" data-i18n="min.rel.l">Jóvenes adultos</span><h3>Harlake Relevant</h3><p data-i18n="min.rel.d">Fe real para las decisiones, los estudios y el trabajo de esta etapa.</p></div>
-      </article>
-      <article class="fam-card rv d1">
-        <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1571316484977-f2339c685ada?auto=format&fit=crop&w=800&q=80');background-position:center 22%"></div>
-        <div class="body"><span class="age" data-i18n="min.mar.l">Parejas casadas</span><h3 data-i18n="min.mar.t">Harlake Matrimonios</h3><p data-i18n="min.mar.d">Matrimonios que crecen juntos, con Dios en el centro.</p></div>
-      </article>
-      <article class="fam-card rv d2">
-        <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1758686254563-5c5ab338c8b9?auto=format&fit=crop&crop=faces&w=800&q=80')"></div>
-        <div class="body"><span class="age" data-i18n="min.gold.l">Desde los 60 años</span><h3>Harlake Gold</h3><p data-i18n="min.gold.d">Una generación que honramos y que sigue sembrando fe y sabiduría.</p></div>
-      </article>
+    <p class="rv d1" data-i18n="live.sub">Tres formas sencillas de acercarnos a Dios.</p>
+  </div>
+  <div class="tri">
+    <article class="tri-item">
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1583162061967-eacb13d913a2?auto=format&fit=crop&w=1200&q=80')"></div>
+      <span class="tri-num">01</span>
+      <svg class="i big"><use href="#sun"/></svg>
+      <h3 class="display" data-i18n="p1.t">Adoración</h3>
+      <p data-i18n="p1.d">Dios habita en medio de nuestras alabanzas. Al adorarle, preparamos una habitación para Su presencia: en este lugar y en nosotros, que somos templos vivos que Él quiere llenar.</p>
+    </article>
+    <article class="tri-item">
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1611518030679-833771a78240?auto=format&fit=crop&w=1200&q=80')"></div>
+      <span class="tri-num">02</span>
+      <svg class="i big"><use href="#flame"/></svg>
+      <h3 class="display" data-i18n="p2.t">Oración</h3>
+      <p data-i18n="p2.d">Orar es hablar con Dios, como en una conversación. Le contamos lo que necesitamos, escuchamos Sus respuestas y dejamos que Su voz nos dé claridad y dirección en la vida.</p>
+    </article>
+    <article class="tri-item">
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1200&q=80')"></div>
+      <span class="tri-num">03</span>
+      <svg class="i big"><use href="#book"/></svg>
+      <h3 class="display" data-i18n="p3.t">La Biblia</h3>
+      <p data-i18n="p3.d">Leemos la Biblia en voz alta y reflexionamos en sus palabras, hasta escuchar a Dios hablar a nuestro corazón el mensaje que necesitamos, cada día que nos acercamos a Él.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ VIDEOS Y REDES ============ -->
+<section class="watch px" id="videos">
+  <div class="rv">
+    <span class="label" data-i18n="vid.kicker">Desde el cuarto de oración</span>
+    <h2 class="display big" style="margin-top:22px;max-width:12ch" data-i18n="vid.title">Adoración que no se detiene</h2>
+  </div>
+  <div class="watch-grid">
+    <div class="screen rv" id="screen">
+      <a class="screen-poster" id="poster" href="#">
+        <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1528828085966-aff4e01c5f2b?auto=format&fit=crop&w=1600&q=80')"></div>
+        <span class="live-pill screen-tag"><span class="dot"></span><span data-i18n="vid.tag">Últimos sets</span></span>
+        <span class="play"><svg class="i"><use href="#play"/></svg></span>
+        <b data-i18n="vid.poster">Mira nuestros videos en YouTube</b>
+      </a>
+    </div>
+    <div class="watch-side rv d1">
+      <p data-i18n="vid.sub">Mira nuestros últimos sets de adoración y oración, y acompáñanos desde donde estés. Cada video es un momento real vivido en Harlake.</p>
+      <div>
+        <span class="label" data-i18n="social.kicker">Síguenos</span>
+        <div class="socials">
+          <a href="#" data-social="youtube"><span class="name"><svg class="i"><use href="#yt"/></svg>YouTube</span><svg class="i go"><use href="#ne"/></svg></a>
+          <a href="#" data-social="instagram"><span class="name"><svg class="i"><use href="#ig"/></svg>Instagram</span><svg class="i go"><use href="#ne"/></svg></a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ CITA ============ -->
-<section class="quote">
-  <div class="wrap rv">
-    <svg class="arc-mark"><use href="#arc"/></svg>
-    <blockquote data-i18n="quote">“Preparas mesa delante de mí… mi copa está rebosando.”</blockquote>
-    <cite data-i18n="quote.ref">Salmo 23:5</cite>
+<!-- ============ VERSÍCULO ============ -->
+<section class="verse px">
+  <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=2200&q=80')"></div>
+  <div class="rv">
+    <svg class="arcs"><use href="#arc"/></svg>
+    <blockquote data-i18n="quote">“…habitar en la casa del Señor todos los días de mi vida, para contemplar la hermosura del Señor.”</blockquote>
+    <cite class="ref" data-i18n="quote.ref">Salmo 27:4</cite>
   </div>
 </section>
 
-<!-- ============ VISITA ============ -->
-<section id="visita">
-  <div class="wrap visit">
-    <div class="visit-card rv">
-      <span class="kicker" style="color:var(--dorado)" data-i18n="cta.visit">Planifica tu visita</span>
-      <h2 class="title" data-i18n="visit.title">Tu primera visita, sin sorpresas</h2>
-      <p class="sub" data-i18n="visit.sub">Queremos que te sientas en casa desde el primer momento.</p>
-      <ul class="steps">
-        <li><span class="num">1</span><div><b data-i18n="st1.t">Llega 15 minutos antes</b><span data-i18n="st1.d">Hay estacionamiento y alguien te recibirá en la entrada.</span></div></li>
-        <li><span class="num">2</span><div><b data-i18n="st2.t">Registra a tus hijos</b><span data-i18n="st2.d">Nuestro equipo de Niños los acompañará durante la reunión.</span></div></li>
-        <li><span class="num">3</span><div><b data-i18n="st3.t">Disfruta un café</b><span data-i18n="st3.d">Después de la reunión, quédate a conocer a la familia.</span></div></li>
-      </ul>
-      <a href="https://maps.google.com/?q=Constanta,Romania" target="_blank" rel="noopener" class="btn btn-gold"><span data-i18n="directions">Cómo llegar</span> <svg class="i arrow"><use href="#arrow"/></svg></a>
-    </div>
+<!-- ============ VISÍTANOS ============ -->
+<section class="visit px" id="visita">
+  <span class="label rv" data-i18n="nav.visit">Visítanos</span>
+  <h2 class="display big rv d1" data-i18n="visit.title">Las puertas están abiertas</h2>
+  <p class="lead rv d2" data-i18n="visit.sub">Ven como eres. No necesitas avisar ni conocer a nadie.</p>
+  <ul class="steps rv">
+    <li><span class="n">01</span><b data-i18n="st1.t">Entra y sal con libertad</b><span data-i18n="st1.d">Puedes llegar o irte en silencio en cualquier momento.</span></li>
+    <li><span class="n">02</span><b data-i18n="st2.t">Quédate el tiempo que quieras</b><span data-i18n="st2.d">Unos minutos o varias horas: ese tiempo es tuyo y de Dios.</span></li>
+    <li><span class="n">03</span><b data-i18n="st3.t">Canta, ora, lee o solo escucha</b><span data-i18n="st3.d">No hay una forma correcta de estar aquí.</span></li>
+  </ul>
+  <div class="visit-foot rv">
+    <span class="place"><svg class="i"><use href="#pin"/></svg><span data-i18n="city">Constanța, Rumanía</span></span>
+    <a href="https://maps.google.com/?q=Constanta,Romania" target="_blank" rel="noopener" class="btn btn-dark"><span data-i18n="cta.directions">Cómo llegar</span> <svg class="i"><use href="#arrow"/></svg></a>
   </div>
 </section>
 </main>
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  <div class="wrap">
-    <div class="foot">
-      <div>
-        <span class="logo"><span class="logo-word">harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span><span class="logo-sub">CHURCH</span></span>
-        <p data-i18n="hero.lead">En este lugar amamos a Dios porque Él nos amó primero… nuestra canción es solo para Él.</p>
-        <div class="social">
-          <a href="#" aria-label="Instagram"><svg class="i"><use href="#ig"/></svg></a>
-          <a href="#" aria-label="YouTube"><svg class="i"><use href="#yt"/></svg></a>
-          <a href="#" aria-label="Facebook"><svg class="i"><use href="#fb"/></svg></a>
-        </div>
-      </div>
-      <div><h4 data-i18n="ft.explore">Explora</h4><ul><li><a href="#quienes" data-i18n="nav.about">Quiénes somos</a></li><li><a href="#reuniones" data-i18n="nav.meetings">Reuniones</a></li><li><a href="#ensenanza" data-i18n="nav.teaching">Enseñanza</a></li><li><a href="#familias" data-i18n="nav.families">Familias</a></li></ul></div>
-      <div><h4 data-i18n="nav.meetings">Reuniones</h4><ul><li><a href="#reuniones" data-i18n="ft.sun">Domingo · 5:00 PM</a></li></ul></div>
-      <div><h4 data-i18n="ft.visit">Visítanos</h4><ul><li><a href="https://maps.google.com/?q=Constanta,Romania" target="_blank" rel="noopener" data-i18n="info.city">Constanța, Rumanía</a></li><li><a href="#visita" data-i18n="cta.visit">Planifica tu visita</a></li><li><a href="#visita" data-i18n="ft.give">Ofrendas</a></li></ul></div>
+  <div class="foot-top px">
+    <div>
+      <span class="logo"><span class="logo-word">Harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span><span class="logo-sub">CASA DE ORACIÓN</span></span>
+      <p data-i18n="ft.tag">Casa de oración y centro de adoración en Constanța.</p>
     </div>
-    <div class="legal"><span>© 2026 Harlake Church. <span data-i18n="ft.rights">Todos los derechos reservados.</span></span><span><span data-i18n="ft.made">Hecho con</span> <svg class="i" style="vertical-align:-2px;color:var(--dorado)"><use href="#heart"/></svg> <span data-i18n="ft.in">en Constanța</span></span></div>
+    <div class="foot-links">
+      <div><h4 data-i18n="ft.explore">Explora</h4><ul><li><a href="#que-es" data-i18n="nav.what">Qué es</a></li><li><a href="#vivimos" data-i18n="nav.live">Qué vivimos</a></li><li><a href="#videos" data-i18n="nav.videos">Videos</a></li><li><a href="#visita" data-i18n="nav.visit">Visítanos</a></li></ul></div>
+      <div><h4 data-i18n="social.kicker">Síguenos</h4><ul><li><a href="#" data-social="youtube">YouTube</a></li><li><a href="#" data-social="instagram">Instagram</a></li></ul></div>
+      <div><h4 data-i18n="nav.visit">Visítanos</h4><ul><li><a href="https://maps.google.com/?q=Constanta,Romania" target="_blank" rel="noopener" data-i18n="city">Constanța, Rumanía</a></li><li><a href="https://maps.google.com/?q=Constanta,Romania" target="_blank" rel="noopener" data-i18n="cta.directions">Cómo llegar</a></li></ul></div>
+    </div>
   </div>
+  <div class="wordmark" aria-hidden="true"><span class="logo-word">Harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4"><use href="#arc"/></svg></span></span></div>
+  <div class="legal px"><span>© 2026 Harlake · Casa de Oración. <span data-i18n="ft.rights">Todos los derechos reservados.</span></span></div>
 </footer>
 
 <script>
+  /* =====================================================================
+     CONFIGURACIÓN — rellena estos datos y la página se actualiza sola
+     ---------------------------------------------------------------------
+     youtubeChannelId: el ID del canal (empieza por "UC…"). Lo encuentras en
+       YouTube → tu canal → Compartir canal → Copiar ID del canal.
+       Con él se muestran automáticamente tus últimos videos.
+     ===================================================================== */
+  const CONFIG = {
+    youtubeChannelId: "",
+    youtube:   "",   // ej. https://www.youtube.com/@harlake
+    instagram: ""    // ej. https://www.instagram.com/harlake
+  };
+
   /* ---------- Traducciones: clave → [español, română, english] ---------- */
   const T = {
-    "nav.home":      ["Inicio", "Acasă", "Home"],
-    "nav.about":     ["Quiénes somos", "Despre noi", "About us"],
-    "nav.meetings":  ["Reuniones", "Întâlniri", "Gatherings"],
-    "nav.teaching":  ["Enseñanza", "Învățătură", "Teaching"],
-    "nav.families":  ["Familias", "Familii", "Families"],
-    "nav.connect":   ["Conecta", "Conectează-te", "Connect"],
-    "cta.visit":     ["Planifica tu visita", "Planifică-ți vizita", "Plan your visit"],
+    "nav.what":      ["Qué es", "Ce este", "What it is"],
+    "nav.live":      ["Qué vivimos", "Ce trăim", "What we live"],
+    "nav.videos":    ["Videos", "Video", "Videos"],
+    "nav.visit":     ["Visítanos", "Vizitează-ne", "Visit us"],
+    "cta.directions":["Cómo llegar", "Cum ajungi", "Get directions"],
+    "city":          ["Constanța, Rumanía", "Constanța, România", "Constanța, Romania"],
 
-    "hero.eyebrow":  ["Constanța · Rumanía", "Constanța · România", "Constanța · Romania"],
-    "hero.title":    ["Experimenta la gracia y el amor de Dios en tu vida", "Experimentează harul și dragostea lui Dumnezeu în viața ta", "Experience the grace and love of God in your life"],
-    "hero.lead":     ["En este lugar amamos a Dios porque Él nos amó primero… nuestra canción es solo para Él.", "Aici Îl iubim pe Dumnezeu pentru că El ne-a iubit întâi… cântarea noastră este doar pentru El.", "Here we love God because He first loved us… our song is for Him alone."],
-    "hero.watch":    ["Ver un mensaje", "Vezi un mesaj", "Watch a message"],
+    "hero.eyebrow":  ["Casa de oración · Constanța", "Casă de rugăciune · Constanța", "House of prayer · Constanța"],
+    "hero.verse":    ["Mi casa será llamada casa de oración para todos los pueblos", "Casa Mea se va numi o casă de rugăciune pentru toate popoarele", "My house shall be called a house of prayer for all peoples"],
+    "hero.ref":      ["Isaías 56:7", "Isaia 56:7", "Isaiah 56:7"],
+    "trio1":         ["Adoración en vivo", "Închinare live", "Live worship"],
+    "trio2":         ["Oración", "Rugăciune", "Prayer"],
+    "trio3":         ["Lectura de la Biblia", "Citirea Bibliei", "Bible reading"],
 
-    "info.sundays":  ["Domingos 5:00 PM", "Duminica, ora 17:00", "Sundays 5:00 PM"],
-    "info.city":     ["Constanța, Rumanía", "Constanța, România", "Constanța, Romania"],
-    "info.map":      ["Ver ubicación", "Vezi locația", "View location"],
-    "info.family":   ["Toda la familia", "Toată familia", "The whole family"],
-    "info.ages":     ["De Kids a Gold: un lugar para cada edad", "De la Kids la Gold: un loc pentru fiecare vârstă", "From Kids to Gold: a place for every age"],
+    "what.kicker":   ["Qué es Harlake", "Ce este Harlake", "What is Harlake"],
+    "what.title":    ["Un lugar para estar con Dios", "Un loc în care să fii cu Dumnezeu", "A place to be with God"],
+    "what.p1":       ["Harlake es un espacio en Constanța donde, de forma continua, hay música en vivo para Dios, personas orando y la Biblia leída en voz alta.",
+                      "Harlake este un spațiu în Constanța unde, în mod continuu, se cântă muzică live pentru Dumnezeu, oamenii se roagă și Biblia este citită cu voce tare.",
+                      "Harlake is a space in Constanța where, continuously, there’s live music for God, people praying and the Bible read aloud."],
+    "what.p2":       ["No necesitas ser religioso ni tener todo resuelto. Entra, quédate el tiempo que quieras y simplemente está con Dios.",
+                      "Nu trebuie să fii religios și nici să ai totul rezolvat. Intră, rămâi cât vrei și pur și simplu fii cu Dumnezeu.",
+                      "You don’t need to be religious or have it all figured out. Come in, stay as long as you like and simply be with God."],
 
-    "about.title":   ["Quiénes somos", "Cine suntem", "Who we are"],
-    "about.text":    ["Somos una iglesia centrada en la presencia de Dios, la enseñanza bíblica y el fortalecimiento de las familias, para ver vidas transformadas y con propósito.",
-                      "Suntem o biserică centrată pe prezența lui Dumnezeu, pe învățătura biblică și pe întărirea familiilor, ca să vedem vieți transformate și pline de scop.",
-                      "We are a church centered on the presence of God, biblical teaching and strengthening families, to see lives transformed and full of purpose."],
-    "about.link":    ["Conoce nuestra visión", "Descoperă viziunea noastră", "Discover our vision"],
+    "live.kicker":   ["Lo que vivimos", "Ce trăim", "What we live"],
+    "live.title":    ["Adoración, oración y la Biblia", "Închinare, rugăciune și Biblia", "Worship, prayer and the Bible"],
+    "live.sub":      ["Tres formas sencillas de acercarnos a Dios.", "Trei moduri simple de a ne apropia de Dumnezeu.", "Three simple ways to come close to God."],
     "p1.t":          ["Adoración", "Închinare", "Worship"],
-    "p1.d":          ["Le damos nuestra música y Él nos da Su Presencia.", "Noi Îi dăm muzica noastră, iar El ne dă Prezența Sa.", "We give Him our music, and He gives us His Presence."],
-    "p2.d":          ["Leemos Sus palabras hasta encontrar Su Voz.", "Citim cuvintele Lui până când găsim Glasul Său.", "We read His words until we find His Voice."],
-    "p3.t":          ["Comunidad", "Comunitate", "Community"],
-    "p3.d":          ["Compartimos nuestras vidas porque Él nos hizo Su familia.", "Ne împărtășim viețile pentru că El ne-a făcut familia Sa.", "We share our lives because He made us His family."],
+    "p1.d":          ["Dios habita en medio de nuestras alabanzas. Al adorarle, preparamos una habitación para Su presencia: en este lugar y en nosotros, que somos templos vivos que Él quiere llenar.",
+                      "Dumnezeu locuiește în mijlocul laudelor noastre. Când ne închinăm Lui, pregătim o cameră pentru prezența Sa: în acest loc și în noi, care suntem temple vii pe care El vrea să le umple.",
+                      "God lives in the middle of our praise. When we worship Him, we prepare a room for His presence: in this place and in us, living temples He wants to fill."],
+    "p2.t":          ["Oración", "Rugăciune", "Prayer"],
+    "p2.d":          ["Orar es hablar con Dios, como en una conversación. Le contamos lo que necesitamos, escuchamos Sus respuestas y dejamos que Su voz nos dé claridad y dirección en la vida.",
+                      "A te ruga înseamnă a vorbi cu Dumnezeu, ca într-o conversație. Îi spunem de ce avem nevoie, ascultăm răspunsurile Lui și lăsăm glasul Lui să ne dea claritate și direcție în viață.",
+                      "Praying is talking with God, like a conversation. We tell Him what we need, listen for His answers and let His voice bring us clarity and direction in life."],
+    "p3.t":          ["La Biblia", "Biblia", "The Bible"],
+    "p3.d":          ["Leemos la Biblia en voz alta y reflexionamos en sus palabras, hasta escuchar a Dios hablar a nuestro corazón el mensaje que necesitamos, cada día que nos acercamos a Él.",
+                      "Citim Biblia cu voce tare și reflectăm la cuvintele ei, până când Îl auzim pe Dumnezeu vorbind inimii noastre mesajul de care avem nevoie, în fiecare zi în care ne apropiem de El.",
+                      "We read the Bible aloud and reflect on its words, until we hear God speak to our hearts the message we need, every day we come close to Him."],
 
-    "meet.title":    ["Te esperamos cada semana", "Te așteptăm în fiecare săptămână", "We’d love to see you every week"],
-    "day.sun":       ["Domingo", "Duminică", "Sunday"],
-    "day.fri":       ["Viernes", "Vineri", "Friday"],
-    "day.wed":       ["Miércoles", "Miercuri", "Wednesday"],
-    "m1.title":      ["Reunión General", "Întâlnirea generală", "Sunday Gathering"],
-    "m1.d":          ["Adoración, Palabra y comunidad para toda la familia.", "Închinare, Cuvânt și comunitate pentru toată familia.", "Worship, the Word and community for the whole family."],
-    "time.sun":      ["5:00<small>PM</small>", "17:00", "5:00<small>PM</small>"],
-    "coffee":        ["Café", "Cafea", "Coffee"],
+    "vid.kicker":    ["Desde el cuarto de oración", "Din camera de rugăciune", "From the prayer room"],
+    "vid.title":     ["Adoración que no se detiene", "Închinare care nu se oprește", "Worship that never stops"],
+    "vid.tag":       ["Últimos sets", "Ultimele seturi", "Latest sets"],
+    "vid.poster":    ["Mira nuestros videos en YouTube", "Urmărește videoclipurile noastre pe YouTube", "Watch our videos on YouTube"],
+    "vid.sub":       ["Mira nuestros últimos sets de adoración y oración, y acompáñanos desde donde estés. Cada video es un momento real vivido en Harlake.",
+                      "Urmărește cele mai recente seturi de închinare și rugăciune și fii alături de noi de oriunde ai fi. Fiecare video este un moment real trăit la Harlake.",
+                      "Watch our latest worship and prayer sets and join us from wherever you are. Every video is a real moment lived at Harlake."],
+    "social.kicker": ["Síguenos", "Urmărește-ne", "Follow us"],
 
-    "msg.latest":    ["Mensaje más reciente", "Cel mai recent mesaj", "Latest message"],
-    "teach.title":   ["La Palabra de Dios para la vida real", "Cuvântul lui Dumnezeu pentru viața reală", "God’s Word for real life"],
-    "teach.sub":     ["Mensajes claros y prácticos, fieles a la Biblia, para que tu fe crezca de domingo a domingo.",
-                      "Mesaje clare și practice, fidele Bibliei, ca să crești în credință de la o duminică la alta.",
-                      "Clear, practical messages, faithful to the Bible, so your faith grows from Sunday to Sunday."],
-    "s1.t":          ["Una mesa preparada", "O masă pregătită", "A table prepared"],
-    "s1.r":          ["Salmo 23", "Psalmul 23", "Psalm 23"],
-    "s2.t":          ["Familias con propósito", "Familii cu scop", "Families with purpose"],
-    "s2.r":          ["Josué 24", "Iosua 24", "Joshua 24"],
-    "s3.t":          ["La presencia que transforma", "Prezența care transformă", "The presence that transforms"],
-    "s3.r":          ["Éxodo 33", "Exodul 33", "Exodus 33"],
-    "teach.all":     ["Ver todos los mensajes", "Vezi toate mesajele", "See all messages"],
+    "quote":         ["“…habitar en la casa del Señor todos los días de mi vida, para contemplar la hermosura del Señor.”", "„…aș vrea să locuiesc toată viața mea în Casa Domnului, ca să privesc frumusețea Domnului.”", "“…that I may dwell in the house of the LORD all the days of my life, to behold the beauty of the LORD.”"],
+    "quote.ref":     ["Salmo 27:4", "Psalmul 27:4", "Psalm 27:4"],
 
-    "fam.title":     ["Un espacio para cada generación", "Un loc pentru fiecare generație", "A place for every generation"],
-    "fam.sub":       ["Creemos que la fe se vive en casa. Por eso acompañamos a cada miembro de la familia en su etapa.",
-                      "Credem că credința se trăiește acasă. De aceea însoțim fiecare membru al familiei în etapa în care se află.",
-                      "We believe faith is lived out at home. That’s why we walk with every member of the family through their stage of life."],
-    "min.kids.l":    ["Niños", "Copii", "Kids"],
-    "min.kids.d":    ["Aprenden de Jesús jugando, en un ambiente seguro y lleno de alegría.", "Învață despre Isus prin joacă, într-un mediu sigur și plin de bucurie.", "They learn about Jesus through play, in a safe and joyful environment."],
-    "min.teens.l":   ["Adolescentes", "Adolescenți", "Teens"],
-    "min.teens.d":   ["Amistades sanas y respuestas honestas en una etapa de grandes cambios.", "Prietenii sănătoase și răspunsuri sincere într-o etapă cu multe schimbări.", "Healthy friendships and honest answers in a season of big changes."],
-    "min.youth.l":   ["Jóvenes", "Tineri", "Youth"],
-    "min.youth.d":   ["Una generación apasionada por Dios que descubre su propósito.", "O generație pasionată de Dumnezeu care își descoperă scopul.", "A generation passionate about God, discovering its purpose."],
-    "min.rel.l":     ["Jóvenes adultos", "Tineri adulți", "Young adults"],
-    "min.rel.d":     ["Fe real para las decisiones, los estudios y el trabajo de esta etapa.", "Credință reală pentru deciziile, studiile și munca din această etapă.", "Real faith for the decisions, studies and work of this season."],
-    "min.mar.t":     ["Harlake Matrimonios", "Harlake Căsnicii", "Harlake Marriages"],
-    "min.mar.l":     ["Parejas casadas", "Cupluri căsătorite", "Married couples"],
-    "min.mar.d":     ["Matrimonios que crecen juntos, con Dios en el centro.", "Căsnicii care cresc împreună, cu Dumnezeu în centru.", "Marriages growing together, with God at the center."],
-    "min.gold.l":    ["Desde los 60 años", "De la 60 de ani", "Ages 60+"],
-    "min.gold.d":    ["Una generación que honramos y que sigue sembrando fe y sabiduría.", "O generație pe care o onorăm și care continuă să semene credință și înțelepciune.", "A generation we honor, still sowing faith and wisdom."],
+    "visit.title":   ["Las puertas están abiertas", "Ușile sunt deschise", "The doors are open"],
+    "visit.sub":     ["Ven como eres. No necesitas avisar ni conocer a nadie.", "Vino așa cum ești. Nu trebuie să anunți și nici să cunoști pe cineva.", "Come as you are. No need to call ahead or know anyone."],
+    "st1.t":         ["Entra y sal con libertad", "Intră și ieși liber", "Come and go freely"],
+    "st1.d":         ["Puedes llegar o irte en silencio en cualquier momento.", "Poți veni sau pleca în liniște în orice moment.", "You can arrive or leave quietly at any moment."],
+    "st2.t":         ["Quédate el tiempo que quieras", "Rămâi cât vrei", "Stay as long as you like"],
+    "st2.d":         ["Unos minutos o varias horas: ese tiempo es tuyo y de Dios.", "Câteva minute sau câteva ore: timpul acesta este al tău și al lui Dumnezeu.", "A few minutes or a few hours: that time is yours and God’s."],
+    "st3.t":         ["Canta, ora, lee o solo escucha", "Cântă, roagă-te, citește sau doar ascultă", "Sing, pray, read or just listen"],
+    "st3.d":         ["No hay una forma correcta de estar aquí.", "Nu există un mod corect de a fi aici.", "There’s no right way to be here."],
 
-    "quote":         ["“Preparas mesa delante de mí… mi copa está rebosando.”", "„Tu îmi întinzi masa… și paharul meu este plin de dă peste el.”", "“You prepare a table before me… my cup overflows.”"],
-    "quote.ref":     ["Salmo 23:5", "Psalmul 23:5", "Psalm 23:5"],
-
-    "visit.title":   ["Tu primera visita, sin sorpresas", "Prima ta vizită, fără surprize", "Your first visit, no surprises"],
-    "visit.sub":     ["Queremos que te sientas en casa desde el primer momento.", "Vrem să te simți ca acasă din primul moment.", "We want you to feel at home from the very first moment."],
-    "st1.t":         ["Llega 15 minutos antes", "Vino cu 15 minute mai devreme", "Arrive 15 minutes early"],
-    "st1.d":         ["Hay estacionamiento y alguien te recibirá en la entrada.", "Avem parcare și cineva te va întâmpina la intrare.", "There’s parking, and someone will greet you at the entrance."],
-    "st2.t":         ["Registra a tus hijos", "Înscrie-ți copiii", "Check in your kids"],
-    "st2.d":         ["Nuestro equipo de Niños los acompañará durante la reunión.", "Echipa noastră pentru copii îi va însoți în timpul întâlnirii.", "Our Kids team will look after them during the gathering."],
-    "st3.t":         ["Disfruta un café", "Bucură-te de o cafea", "Enjoy a coffee"],
-    "st3.d":         ["Después de la reunión, quédate a conocer a la familia.", "După întâlnire, rămâi să cunoști familia bisericii.", "After the gathering, stay and meet the family."],
-    "directions":    ["Cómo llegar", "Cum ajungi", "Get directions"],
-
-
+    "ft.tag":        ["Casa de oración y centro de adoración en Constanța.", "Casă de rugăciune și centru de închinare în Constanța.", "A house of prayer and worship center in Constanța."],
     "ft.explore":    ["Explora", "Explorează", "Explore"],
-    "ft.visit":      ["Visítanos", "Vizitează-ne", "Visit us"],
-    "ft.give":       ["Ofrendas", "Donații", "Giving"],
-    "ft.sun":        ["Domingo · 5:00 PM", "Duminică · 17:00", "Sunday · 5:00 PM"],
     "ft.rights":     ["Todos los derechos reservados.", "Toate drepturile rezervate.", "All rights reserved."],
-    "ft.made":       ["Hecho con", "Făcut cu", "Made with"],
-    "ft.in":         ["en Constanța", "în Constanța", "in Constanța"],
 
     "aria.mainnav":  ["Principal", "Principal", "Main"],
     "aria.lang":     ["Idioma", "Limba", "Language"],
     "aria.open":     ["Abrir menú", "Deschide meniul", "Open menu"],
     "aria.close":    ["Cerrar menú", "Închide meniul", "Close menu"],
-    "aria.hero":     ["Personas adorando con las manos alzadas", "Oameni care se închină cu mâinile ridicate", "People worshipping with raised hands"],
-    "aria.play":     ["Reproducir el mensaje más reciente", "Redă cel mai recent mesaj", "Play the latest message"],
-    "meta.desc":     ["Harlake Church: un centro de adoración y enseñanza bíblica para las familias en Constanța, Rumanía. Reunión general los domingos a las 5:00 PM.",
-                      "Harlake Church: un centru de închinare și învățătură biblică pentru familii în Constanța, România. Întâlnirea generală duminica, la ora 17:00.",
-                      "Harlake Church: a center of worship and biblical teaching for families in Constanța, Romania. Sunday gathering at 5:00 PM."]
+    "aria.hero":     ["Líder de adoración con guitarra en el escenario", "Lider de închinare cu chitara pe scenă", "Worship leader with a guitar on stage"],
+    "meta.desc":     ["Harlake, casa de oración en Constanța: adoración en vivo, oración y lectura de la Biblia de forma continua.",
+                      "Harlake, casă de rugăciune în Constanța: închinare live, rugăciune și citirea Bibliei, în mod continuu.",
+                      "Harlake, a house of prayer in Constanța: continuous live worship, prayer and Bible reading."]
   };
   const LANGS = ["es", "ro", "en"];
 
@@ -745,8 +541,6 @@
     const apply = () => {
       const t = k => (T[k] || [])[idx] ?? (T[k] || [])[0];
       document.querySelectorAll("[data-i18n]").forEach(el => { const v = t(el.dataset.i18n); if (v != null) el.textContent = v; });
-      document.querySelectorAll("[data-i18n-html]").forEach(el => { const v = t(el.dataset.i18nHtml); if (v != null) el.innerHTML = v; });
-      document.querySelectorAll("[data-i18n-ph]").forEach(el => { const v = t(el.dataset.i18nPh); if (v != null) el.placeholder = v; });
       document.querySelectorAll("[data-i18n-aria]").forEach(el => { const v = t(el.dataset.i18nAria); if (v != null) el.setAttribute("aria-label", v); });
       document.querySelector('meta[name="description"]').content = t("meta.desc");
       document.documentElement.lang = lang;
@@ -760,8 +554,6 @@
       setTimeout(() => { apply(); document.documentElement.classList.remove("switching"); }, 180);
     } else apply();
   }
-
-  // Idioma inicial: ?lang= → elección guardada → idioma del navegador → español
   (function initLang() {
     let saved = null;
     try { saved = localStorage.getItem("harlake-lang"); } catch (e) {}
@@ -771,30 +563,44 @@
   })();
   document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang, true)));
 
-  // Nav background on scroll
-  const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
-  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  /* ---------- Redes sociales y YouTube ---------- */
+  document.querySelectorAll("[data-social]").forEach(a => {
+    const url = CONFIG[a.dataset.social];
+    if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; }
+    else a.href = "#videos";
+  });
+  const poster = document.getElementById("poster");
+  if (CONFIG.youtube) { poster.href = CONFIG.youtube; poster.target = "_blank"; poster.rel = "noopener"; }
+  if (/^UC[\w-]{22}$/.test(CONFIG.youtubeChannelId)) {
+    // Lista automática con las últimas subidas del canal (UC… → UU…)
+    const f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/videoseries?list=UU" + CONFIG.youtubeChannelId.slice(2);
+    f.title = "YouTube · Harlake";
+    f.loading = "lazy";
+    f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    f.allowFullscreen = true;
+    document.getElementById("screen").replaceChildren(f);
+  }
 
-  // Mobile drawer
-  const drawer = document.getElementById('drawer');
-  const setMenu = open => { drawer.classList.toggle('open', open); drawer.setAttribute('aria-hidden', !open); document.body.style.overflow = open ? 'hidden' : ''; };
-  document.getElementById('openMenu').onclick = () => setMenu(true);
-  document.getElementById('closeMenu').onclick = () => setMenu(false);
-  drawer.querySelectorAll('nav a, .btn').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  /* ---------- Nav, menú, enlace activo y animaciones ---------- */
+  const nav = document.getElementById("nav");
+  const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 40);
+  onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
 
-  // Active link
-  const links = [...document.querySelectorAll('.nav-links a')];
-  const secs = links.map(a => document.querySelector(a.getAttribute('href')));
+  const drawer = document.getElementById("drawer");
+  const setMenu = open => { drawer.classList.toggle("open", open); drawer.setAttribute("aria-hidden", !open); document.body.style.overflow = open ? "hidden" : ""; };
+  document.getElementById("openMenu").onclick = () => setMenu(true);
+  document.getElementById("closeMenu").onclick = () => setMenu(false);
+  drawer.querySelectorAll("nav a, .btn").forEach(a => a.addEventListener("click", () => setMenu(false)));
+
+  const links = [...document.querySelectorAll(".nav-links a")];
   const spy = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
-  }), {rootMargin:'-45% 0px -50% 0px'});
-  secs.forEach(s => s && spy.observe(s));
+    if (e.isIntersecting) links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id));
+  }), {rootMargin:"-45% 0px -50% 0px"});
+  links.forEach(a => { const s = document.querySelector(a.getAttribute("href")); if (s) spy.observe(s); });
 
-  // Reveal on scroll
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
-  document.querySelectorAll('.rv').forEach(el => io.observe(el));
-
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll(".rv").forEach(el => io.observe(el));
 </script>
 </body>
 </html>
