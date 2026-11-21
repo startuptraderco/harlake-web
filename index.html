@@ -113,14 +113,14 @@
   .split-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(56px,8vw,140px) var(--pad)}
   .split-text .label{color:var(--dorado-2)}
   .split-text h2{margin:26px 0 30px;max-width:12ch}
-  .split-text p{font-size:clamp(16px,1.25vw,19px);color:var(--muted);max-width:44ch}
+  .split-text p{font-size:clamp(17px,1.4vw,21px);color:var(--muted);max-width:44ch}
   .split-text p + p{margin-top:16px}
   .arcs{display:block;width:58px;height:21px;color:var(--dorado);margin-bottom:22px}
 
   /* ---------- Triptych (Qué vivimos) ---------- */
   .live-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;padding-top:clamp(80px,9vw,140px);padding-bottom:48px}
   .live-head h2{max-width:14ch}
-  .live-head p{color:var(--soft);font-size:clamp(16px,1.3vw,19px);max-width:34ch}
+  .live-head p{color:var(--soft);font-size:clamp(17px,1.4vw,21px);max-width:34ch}
   .tri{display:flex;height:min(86vh,820px);min-height:560px}
   .tri-item{position:relative;flex:1;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(28px,3vw,52px);isolation:isolate;transition:flex .7s var(--ease);border-right:1px solid rgba(255,255,255,.08)}
   .tri-item:last-child{border-right:0}
@@ -132,7 +132,7 @@
   .tri-num{position:absolute;top:clamp(24px,3vw,44px);left:clamp(28px,3vw,52px);font-size:13px;font-weight:700;letter-spacing:.3em;color:var(--dorado)}
   .tri-item .i.big{font-size:34px;color:var(--dorado);stroke-width:1.4;margin-bottom:18px}
   .tri-item h3{font-size:clamp(28px,3vw,48px)}
-  .tri-item p{margin-top:16px;color:var(--soft);font-size:15.5px;line-height:1.6;max-width:36ch}
+  .tri-item p{margin-top:16px;color:rgba(255,255,255,.82);font-size:clamp(17px,1.3vw,19px);line-height:1.6;max-width:34ch}
 
   /* ---------- Videos ---------- */
   .watch{padding-top:clamp(90px,10vw,160px);padding-bottom:clamp(90px,10vw,160px);background:radial-gradient(70% 60% at 85% 10%,rgba(201,163,106,.12),transparent 70%),var(--night)}
@@ -150,7 +150,7 @@
   .screen-poster b{font-size:15px;font-weight:600;letter-spacing:.04em}
   .screen-tag{position:absolute;top:16px;left:16px;z-index:2}
   .watch-side{display:flex;flex-direction:column;justify-content:space-between;gap:36px}
-  .watch-side p{color:var(--soft);font-size:clamp(16px,1.25vw,18px);max-width:38ch}
+  .watch-side p{color:var(--soft);font-size:clamp(17px,1.35vw,20px);max-width:38ch}
   .socials{border-top:1px solid var(--line-d);margin-top:18px}
   .socials a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;border-bottom:1px solid var(--line-d);transition:color .25s,padding .35s var(--ease)}
   .socials a:hover{color:var(--dorado);padding-left:10px}
@@ -170,13 +170,13 @@
   .visit{background:var(--arena);color:var(--ink);padding-top:clamp(90px,10vw,160px);padding-bottom:clamp(90px,10vw,160px)}
   .visit .label{color:var(--dorado-2)}
   .visit h2{margin:24px 0 18px;max-width:13ch}
-  .visit .lead{font-size:clamp(17px,1.4vw,21px);color:var(--muted);max-width:40ch}
+  .visit .lead{font-size:clamp(18px,1.5vw,23px);color:var(--muted);max-width:40ch}
   .steps{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(48px,6vw,90px);border-top:1px solid var(--line-l)}
   .steps li{padding:34px 34px 34px 0}
   .steps li + li{padding-left:34px;border-left:1px solid var(--line-l)}
   .steps .n{font-size:13px;font-weight:700;letter-spacing:.3em;color:var(--dorado-2)}
   .steps b{display:block;font-size:clamp(20px,1.7vw,26px);font-weight:700;letter-spacing:-.01em;margin:14px 0 8px;line-height:1.2}
-  .steps span{color:var(--muted);font-size:15.5px}
+  .steps span{color:var(--muted);font-size:clamp(16px,1.2vw,18px)}
   .visit-foot{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:40px;padding-top:34px;border-top:1px solid var(--line-l)}
   .place{display:inline-flex;align-items:center;gap:12px;font-size:clamp(18px,1.6vw,24px);font-weight:700;text-transform:uppercase;letter-spacing:.02em}
   .place .i{color:var(--dorado-2);font-size:26px}
@@ -268,7 +268,7 @@
 <header class="nav" id="nav">
   <div class="nav-in px">
     <a href="#inicio" class="logo" aria-label="Harlake · Casa de Oración">
-      <span class="logo-word">Harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span>
+      <span class="logo-word">harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span>
       <span class="logo-sub">CASA DE ORACIÓN</span>
     </a>
     <nav class="nav-links" data-i18n-aria="aria.mainnav" aria-label="Principal">
@@ -292,7 +292,7 @@
 
 <div class="drawer" id="drawer" aria-hidden="true">
   <div class="drawer-top">
-    <span class="logo"><span class="logo-word">Harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span><span class="logo-sub">CASA DE ORACIÓN</span></span>
+    <span class="logo"><span class="logo-word">harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span><span class="logo-sub">CASA DE ORACIÓN</span></span>
     <button class="burger" id="closeMenu" data-i18n-aria="aria.close" aria-label="Cerrar menú" style="display:grid"><svg class="i"><use href="#x"/></svg></button>
   </div>
   <nav>
@@ -431,7 +431,7 @@
 <footer>
   <div class="foot-top px">
     <div>
-      <span class="logo"><span class="logo-word">Harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span><span class="logo-sub">CASA DE ORACIÓN</span></span>
+      <span class="logo"><span class="logo-word">harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4" aria-hidden="true"><use href="#arc"/></svg></span></span><span class="logo-sub">CASA DE ORACIÓN</span></span>
       <p data-i18n="ft.tag">Casa de oración y centro de adoración en Constanța.</p>
     </div>
     <div class="foot-links">
@@ -440,7 +440,7 @@
       <div><h4 data-i18n="nav.visit">Visítanos</h4><ul><li><a href="https://maps.google.com/?q=Constanta,Romania" target="_blank" rel="noopener" data-i18n="city">Constanța, Rumanía</a></li><li><a href="https://maps.google.com/?q=Constanta,Romania" target="_blank" rel="noopener" data-i18n="cta.directions">Cómo llegar</a></li></ul></div>
     </div>
   </div>
-  <div class="wordmark" aria-hidden="true"><span class="logo-word">Harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4"><use href="#arc"/></svg></span></span></div>
+  <div class="wordmark" aria-hidden="true"><span class="logo-word">harlak<span class="e">e<svg class="arc" viewBox="0 0 62 22.4"><use href="#arc"/></svg></span></span></div>
   <div class="legal px"><span>© 2026 Harlake · Casa de Oración. <span data-i18n="ft.rights">Todos los derechos reservados.</span></span></div>
 </footer>
 
